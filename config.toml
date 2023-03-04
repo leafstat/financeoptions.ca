@@ -1,0 +1,4 @@
+baseURL = 'http://www.financeoptions.ca/'
+languageCode = 'en-us'
+title = 'Personal Financial Options'
+theme = 'ananke'
