@@ -1,4 +1,26 @@
-baseURL = 'http://www.financeoptions.ca/'
+title = 'Canadian Finance Options'
+baseURL = 'https://www.financeoptions.ca/'
 languageCode = 'en-us'
-title = 'Personal Financial Options'
 theme = 'ananke'
+
+DefaultContentLanguage = "en"
+SectionPagesMenu = "main"
+Paginate = 10
+googleAnalytics = ""
+enableRobotsTXT = true
+
+[languages]
+  [languages.en]
+    title = "Ananke"
+    weight = 1
+    contentDir = "content/en"
+    # languageDirection = 'rtl' for Right-To-Left languages
+  #[languages.fr]
+  #  title = "Ananke Fr"
+  #  weight = 2
+  #  contentDir = "content/fr"
+
+[params]
+  site_logo = "images/logo.png"
+  description = "Personal Money Management"
+  
