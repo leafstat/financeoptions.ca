@@ -1,26 +1,77 @@
-title = 'Canadian Finance Options'
-baseURL = 'https://www.financeoptions.ca/'
-languageCode = 'en-us'
-theme = 'ananke'
+# Basic
+title = "Finance Options"
+baseURL = "https://www.financeoptions.ca/"
+theme = "vno-hugo"
 
-DefaultContentLanguage = "en"
-SectionPagesMenu = "main"
-Paginate = 10
-googleAnalytics = ""
-enableRobotsTXT = true
-
+# supported languages: en-us
+defaultContentLanguage = 'en-us'
+# here lists available languages, if you wish to add your own custom translation, please refer to https://gohugo.io/content-management/multilingual
 [languages]
-  [languages.en]
-    title = "Ananke"
-    weight = 1
-    contentDir = "content/en"
-    # languageDirection = 'rtl' for Right-To-Left languages
-  #[languages.fr]
-  #  title = "Ananke Fr"
-  #  weight = 2
-  #  contentDir = "content/fr"
+  [languages.en-us]
+    languageName = 'English(United States)'
+    weight = 10
 
+# Pagination
+paginate = 10
+paginatePath = "page"
+
+[outputs]
+  home = ["HTML", "RSS"]
+
+[menu]
+  [[menu.main]]
+    name = "Reviews"
+    identifier = "Reviews"
+    url = "/reviews/"
+    weight = 10
+ [[menu.main]]
+    name = "Tags"
+    identifier = "Tags"
+    url = "/tags/"
+    weight = 20
+[taxonomies]
+    tag = "tags"
+    
 [params]
-  site_logo = "images/logo.png"
-  description = "Personal Money Management"
-  
+author = "onevcat"
+subtitle = "Personal Financial Advice"
+description = "Helping Canadian's Recover from Finacial Injury"
+welcomeMessage = "Personal Financial Recovery"
+
+# supported colors: blue, green, purple, red, orange or slate. If you need clear, leave it empty.
+coverColor = "green"
+
+[params.comment]
+disqus = "vno-hugo"
+duoshuo = ""
+
+# Take a look on https://github.com/gitalk/gitalk#usage for more info.
+[params.comment.gitalk]
+ID = ""
+secret = ""
+repo = ""
+owner = ""
+
+[params.social]
+weibo = ""
+github = ""
+twitter = ""
+gplus = ""
+mail = "help@financeoptions.ca"
+linkedin = ""
+
+[params.ga]
+ID = "your_ga_id"
+host = "your_host"
+
+# The blog button should not be removed.
+[params.blogButton]
+title = "Articles"
+description = "The Latest News in Personal Finance"
+
+[params.copyright]
+license = 'CC BY-NC-SA 4.0'
+license_link = 'http://creativecommons.org/licenses/by-nc-sa/4.0/'
+
+[permalinks]
+posts = "/:year/:month/:title/"
