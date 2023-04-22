@@ -25,10 +25,14 @@ paginatePath = "page"
     url = "/reviews/"
     weight = 10
  [[menu.main]]
-    name = "Tags"
-    identifier = "Tags"
-    url = "/tags/"
+    name = "Debt Dictionary"
+    identifier = "Debt Dictionary"
+    url = "/faq/debt-dictionary/"
     weight = 20
+ [[menu.main]]
+    name = "About Us"
+    identifier = "About"
+    url = "/about/"
 [taxonomies]
     tag = "tags"
     
