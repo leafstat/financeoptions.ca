@@ -1,0 +1,21 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    {{- if .Page.IsHome -}}{{ .Site.Title }}
+    {{- else -}}{{ .Title }} - {{ .Site.Title }}
+    {{- end -}}
+  </title>
+  <meta name="author" content="{{ .Site.Params.author }}">
+  <meta name="keywords" content='
+    {{- with delimit .Page.Keywords " ," -}} {{ . }} 
+    {{- else -}} {{ .Site.Params.keywords }} 
+    {{- end -}}'>
+  <meta name="description" content="
+    {{- with .Page.Description -}} {{ . }}
+    {{- else -}} {{ .Site.Params.description }}
+    {{- end -}}">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>

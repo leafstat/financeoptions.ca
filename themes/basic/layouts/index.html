@@ -1,0 +1,25 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ partial "homepage/carousel.html" . }}
+
+<div class="container">
+  <h1 class="text-center mt-5 mb-5">Canada's Finance Options</h1>
+  <div class="w-100 bg-dark-subtle p-5 mb-5">
+    <p>{{ .Content }}</p>
+    <button type="button" class="btn btn-primary btn-lg">Company Reviews</button>
+  </div>
+
+  <div class="fs-1 mt-5 mb-5 text-center">BEST BANKRUPTCY AND INSOLVENCY FIRMS</div>
+  {{ partial "homepage/cards.html" . }}
+
+  <h2 class="fs-1 mb-5 text-center">ABOUT</h2>
+  {{ partial "homepage/about.html" . }}
+
+  <h2 id="contact" class="fs-1 mb-5 text-center">CONTACT US</h2>
+  {{ partial "homepage/contact.html" . }}
+
+
+  <h2 class="fs-1 mt-5 mb-5 text-center">Let us Help</h2>
+  <img src="https://placehold.co/600x300" alt="We are here to help" class="w-100 mb-5">
+
+  {{ end }}
