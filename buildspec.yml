@@ -1,0 +1,42 @@
+version: 0.2
+
+env:
+  variables:
+    HUGO_VERSION: "0.92.0"  # Specify your desired Hugo version
+    S3_BUCKET_NAME: "ludus-website-test"
+    # CLOUDFRONT_DISTRIBUTION_ID: ""
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14  # Specify the Node.js version if needed
+    commands:
+      - apt-get update
+      - apt-get install -y wget
+      - wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.deb
+      - dpkg -i hugo_${HUGO_VERSION}_Linux-64bit.deb
+      - hugo version
+
+  pre_build:
+    commands:
+      - echo "Installing theme submodules if any..."
+      - git submodule update --init --recursive
+
+  build:
+    commands:
+      - echo "Building Hugo site..."
+      - hugo --minify
+
+  post_build:
+    commands:
+      - echo "Deploying to S3..."
+      - aws s3 sync public/ s3://${S3_BUCKET_NAME} --delete
+      - echo "Invalidating CloudFront distribution... (invalidated)"
+      # - aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} --paths "/*"
+      - echo Build completed on `date`
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'public'
+  discard-paths: no
