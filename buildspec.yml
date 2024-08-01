@@ -3,6 +3,8 @@ version: 0.2
 env:
   variables:
     HUGO_VERSION: "0.92.0"  # Specify your desired Hugo version
+    #THEME_REPOSITORY_URL: "https://github.com/zerostaticthemes/hugo-hero-theme.git"
+    #THEME_NAME: "hugo-hero-theme"
     S3_BUCKET_NAME: "ludus-website-test"
     # CLOUDFRONT_DISTRIBUTION_ID: ""
 
@@ -19,8 +21,13 @@ phases:
 
   pre_build:
     commands:
-      - echo "Installing theme submodules if any..."
-      - git submodule update --init --recursive
+      # NOT initializing a git repo so git submodules fail
+      # - echo "Installing theme submodules if any..."
+      # - git submodule update --init --recursive
+      
+      # instead install our theme directly (when needed)
+      #- echo "Cloning theme..."
+      #- git clone ${THEME_REPOSITORY_URL} themes/${THEME_NAME}
 
   build:
     commands:
